@@ -1,0 +1,1264 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_admin", "type": "address" },
+      { "internalType": "address", "name": "_kolToken", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "campaignNumber",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bool",
+                "name": "investmentClaimed",
+                "type": "bool"
+              },
+              {
+                "internalType": "bool",
+                "name": "claimBackInvestment",
+                "type": "bool"
+              },
+              {
+                "internalType": "address",
+                "name": "preSaleToken",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "campaignOwner",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "secondOwner",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "requiredInvestment",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "marketingBudget",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "startTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "endTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "remainingInvestment",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maxInvest",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "numberOfPostsReq",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakingAmount",
+                "type": "uint256"
+              },
+              { "internalType": "string", "name": "ipfsHash", "type": "string" }
+            ],
+            "internalType": "struct iProtoKol.CampaignDetails",
+            "name": "campaignData",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bool",
+                "name": "isVestingInEnabled",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "NumberOfvestings",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "vestingCycleDuration",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "vestingAmtPerCycle",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct iProtoKol.VestingDetails",
+            "name": "vestingData",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              { "internalType": "bool", "name": "isTGE", "type": "bool" },
+              {
+                "internalType": "uint16",
+                "name": "tgePercentage",
+                "type": "uint16"
+              },
+              {
+                "internalType": "uint256",
+                "name": "tgeTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "tgeAmount",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct iProtoKol.TGE",
+            "name": "tgeDetails",
+            "type": "tuple"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct iProtoKol.Campaign",
+        "name": "_campaign",
+        "type": "tuple"
+      }
+    ],
+    "name": "CampaignCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "campaignNumber",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bool",
+                "name": "investmentClaimed",
+                "type": "bool"
+              },
+              {
+                "internalType": "bool",
+                "name": "claimBackInvestment",
+                "type": "bool"
+              },
+              {
+                "internalType": "address",
+                "name": "preSaleToken",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "campaignOwner",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "secondOwner",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "requiredInvestment",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "marketingBudget",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "startTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "endTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "remainingInvestment",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maxInvest",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "numberOfPostsReq",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakingAmount",
+                "type": "uint256"
+              },
+              { "internalType": "string", "name": "ipfsHash", "type": "string" }
+            ],
+            "internalType": "struct iProtoKol.CampaignDetails",
+            "name": "campaignData",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bool",
+                "name": "isVestingInEnabled",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "NumberOfvestings",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "vestingCycleDuration",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "vestingAmtPerCycle",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct iProtoKol.VestingDetails",
+            "name": "vestingData",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              { "internalType": "bool", "name": "isTGE", "type": "bool" },
+              {
+                "internalType": "uint16",
+                "name": "tgePercentage",
+                "type": "uint16"
+              },
+              {
+                "internalType": "uint256",
+                "name": "tgeTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "tgeAmount",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct iProtoKol.TGE",
+            "name": "tgeDetails",
+            "type": "tuple"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct iProtoKol.Campaign",
+        "name": "_newCampaign",
+        "type": "tuple"
+      }
+    ],
+    "name": "CampaignDetailsUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "campaign_Id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "progress",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_investment",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_kol",
+        "type": "address"
+      }
+    ],
+    "name": "ClaimBackInvestment",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "campaign_Id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_investment",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_kol",
+        "type": "address"
+      }
+    ],
+    "name": "ClaimKolInvestment",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "campaign_Id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "preSaleToken",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_kol",
+        "type": "address"
+      }
+    ],
+    "name": "ClaimPreSaleTokens",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "campaign_Id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "depositer",
+        "type": "address"
+      }
+    ],
+    "name": "DepositPreSaleTokens",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "campaign_Id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_investmentShare",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_kol",
+        "type": "address"
+      }
+    ],
+    "name": "InvestInCampaign",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "kolWallet", "type": "address" },
+          { "internalType": "uint256", "name": "kolID", "type": "uint256" },
+          { "internalType": "string", "name": "name", "type": "string" },
+          { "internalType": "string", "name": "ipfsHash", "type": "string" }
+        ],
+        "indexed": false,
+        "internalType": "struct iProtoKol.KOL",
+        "name": "_kol",
+        "type": "tuple"
+      }
+    ],
+    "name": "KOLAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_tge",
+        "type": "uint256"
+      }
+    ],
+    "name": "SetMaxTGEAllowance",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_penalty",
+        "type": "uint256"
+      }
+    ],
+    "name": "SetPenalty",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint16",
+        "name": "_stakingPerct",
+        "type": "uint16"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_time",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_updatedBy",
+        "type": "address"
+      }
+    ],
+    "name": "StakingPercentageUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_campaignID",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_tgeAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_tgeTime",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_depositedBy",
+        "type": "address"
+      }
+    ],
+    "name": "TGEDeposited",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "_penalty_per",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "blackListedKOL",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "campaigns",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "campaignNumber",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "investmentClaimed",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "claimBackInvestment",
+            "type": "bool"
+          },
+          {
+            "internalType": "address",
+            "name": "preSaleToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "campaignOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "secondOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "requiredInvestment",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "marketingBudget",
+            "type": "uint256"
+          },
+          { "internalType": "uint256", "name": "startTime", "type": "uint256" },
+          { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "remainingInvestment",
+            "type": "uint256"
+          },
+          { "internalType": "uint256", "name": "maxInvest", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "numberOfPostsReq",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stakingAmount",
+            "type": "uint256"
+          },
+          { "internalType": "string", "name": "ipfsHash", "type": "string" }
+        ],
+        "internalType": "struct iProtoKol.CampaignDetails",
+        "name": "campaignData",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "isVestingInEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "NumberOfvestings",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "vestingCycleDuration",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "vestingAmtPerCycle",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct iProtoKol.VestingDetails",
+        "name": "vestingData",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          { "internalType": "bool", "name": "isTGE", "type": "bool" },
+          {
+            "internalType": "uint16",
+            "name": "tgePercentage",
+            "type": "uint16"
+          },
+          { "internalType": "uint256", "name": "tgeTime", "type": "uint256" },
+          { "internalType": "uint256", "name": "tgeAmount", "type": "uint256" }
+        ],
+        "internalType": "struct iProtoKol.TGE",
+        "name": "tgeDetails",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
+      { "internalType": "uint256", "name": "progress", "type": "uint256" },
+      { "internalType": "bytes32", "name": "r", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "s", "type": "bytes32" },
+      { "internalType": "uint8", "name": "v", "type": "uint8" },
+      { "internalType": "bytes32", "name": "msgHash", "type": "bytes32" }
+    ],
+    "name": "claimBackInvestment",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_campaignID", "type": "uint256" }
+    ],
+    "name": "claimKOLInvestment",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
+      { "internalType": "bytes32", "name": "r", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "s", "type": "bytes32" },
+      { "internalType": "uint8", "name": "v", "type": "uint8" },
+      { "internalType": "bytes32", "name": "msgHash", "type": "bytes32" }
+    ],
+    "name": "claimPreSaleTokens",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "preSaleToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "campaignOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "secondOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "requiredInvestment",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "marketingBudget",
+            "type": "uint256"
+          },
+          { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+          { "internalType": "uint256", "name": "maxInvest", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "numberOfPostsReq",
+            "type": "uint256"
+          },
+          { "internalType": "string", "name": "ipfsHash", "type": "string" }
+        ],
+        "internalType": "struct iProtoKol.CampaignDetailsInput",
+        "name": "_newCampaignInput",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "isVestingInEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "NumberOfvestings",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "vestingCycleDuration",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct iProtoKol.VestingDetailsInput",
+        "name": "_vestingInfoInput",
+        "type": "tuple"
+      },
+      { "internalType": "uint16", "name": "_tgePer", "type": "uint16" },
+      { "internalType": "bytes32", "name": "r", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "s", "type": "bytes32" },
+      { "internalType": "uint8", "name": "v", "type": "uint8" },
+      { "internalType": "bytes32", "name": "msgHash", "type": "bytes32" }
+    ],
+    "name": "createCampaign",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "campaign_Id", "type": "uint256" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" },
+      { "internalType": "address", "name": "token", "type": "address" }
+    ],
+    "name": "depositPreSaleTokens",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_campaignID", "type": "uint256" }
+    ],
+    "name": "generateTGE",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_investor", "type": "address" },
+      { "internalType": "uint256", "name": "_campaignID", "type": "uint256" }
+    ],
+    "name": "getInvestedCampaigns",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "bool", "name": "tgeClaimed", "type": "bool" },
+          {
+            "internalType": "address",
+            "name": "investorKOL",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "campaignNumber",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "investedAmt",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "investShare",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "eligibleReward",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "vestingRewardPerCycle",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastVestingClaimed",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "numberOfVestingsClaimed",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct iProtoKol.InvestedCampaign",
+        "name": "investDetails",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_kol", "type": "address" }
+    ],
+    "name": "getKolInvestedCampaigns",
+    "outputs": [
+      { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_campaignID", "type": "uint256" },
+      { "internalType": "uint256", "name": "_investment", "type": "uint256" }
+    ],
+    "name": "investInCampaign",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "investedCapmaignDetails",
+    "outputs": [
+      { "internalType": "bool", "name": "tgeClaimed", "type": "bool" },
+      { "internalType": "address", "name": "investorKOL", "type": "address" },
+      {
+        "internalType": "uint256",
+        "name": "campaignNumber",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "investedAmt", "type": "uint256" },
+      { "internalType": "uint256", "name": "investShare", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "eligibleReward",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "vestingRewardPerCycle",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lastVestingClaimed",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "numberOfVestingsClaimed",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "kolInvestDetails",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "r", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "s", "type": "bytes32" },
+      { "internalType": "uint8", "name": "v", "type": "uint8" },
+      { "internalType": "bytes32", "name": "msgHash", "type": "bytes32" }
+    ],
+    "name": "recSig",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes", "name": "_signature", "type": "bytes" },
+      { "internalType": "bytes32", "name": "msgHash", "type": "bytes32" }
+    ],
+    "name": "recoverSig",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "string", "name": "_ipfsHash", "type": "string" }
+    ],
+    "name": "registerKOL",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_campaignID", "type": "uint256" }
+    ],
+    "name": "retriveCampaign",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "campaignNumber",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bool",
+                "name": "investmentClaimed",
+                "type": "bool"
+              },
+              {
+                "internalType": "bool",
+                "name": "claimBackInvestment",
+                "type": "bool"
+              },
+              {
+                "internalType": "address",
+                "name": "preSaleToken",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "campaignOwner",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "secondOwner",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "requiredInvestment",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "marketingBudget",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "startTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "endTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "remainingInvestment",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maxInvest",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "numberOfPostsReq",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakingAmount",
+                "type": "uint256"
+              },
+              { "internalType": "string", "name": "ipfsHash", "type": "string" }
+            ],
+            "internalType": "struct iProtoKol.CampaignDetails",
+            "name": "campaignData",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bool",
+                "name": "isVestingInEnabled",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "NumberOfvestings",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "vestingCycleDuration",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "vestingAmtPerCycle",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct iProtoKol.VestingDetails",
+            "name": "vestingData",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              { "internalType": "bool", "name": "isTGE", "type": "bool" },
+              {
+                "internalType": "uint16",
+                "name": "tgePercentage",
+                "type": "uint16"
+              },
+              {
+                "internalType": "uint256",
+                "name": "tgeTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "tgeAmount",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct iProtoKol.TGE",
+            "name": "tgeDetails",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct iProtoKol.Campaign",
+        "name": "campaignDetails",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_kol", "type": "address" }
+    ],
+    "name": "retriveKOL",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "kolWallet", "type": "address" },
+          { "internalType": "uint256", "name": "kolID", "type": "uint256" },
+          { "internalType": "string", "name": "name", "type": "string" },
+          { "internalType": "string", "name": "ipfsHash", "type": "string" }
+        ],
+        "internalType": "struct iProtoKol.KOL",
+        "name": "kol",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_tge", "type": "uint256" }
+    ],
+    "name": "setMaximumTGEAllowance",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_penalty", "type": "uint256" }
+    ],
+    "name": "setPenalty",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint16", "name": "_stakingPerct", "type": "uint16" }
+    ],
+    "name": "setStakingPercentage",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes", "name": "_signature", "type": "bytes" }
+    ],
+    "name": "splitSign",
+    "outputs": [
+      { "internalType": "bytes32", "name": "r", "type": "bytes32" },
+      { "internalType": "bytes32", "name": "s", "type": "bytes32" },
+      { "internalType": "uint8", "name": "v", "type": "uint8" }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "tgeUpdated",
+    "outputs": [{ "internalType": "uint16", "name": "", "type": "uint16" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_campaignID", "type": "uint256" },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "preSaleToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "campaignOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "secondOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "requiredInvestment",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "marketingBudget",
+            "type": "uint256"
+          },
+          { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+          { "internalType": "uint256", "name": "maxInvest", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "numberOfPostsReq",
+            "type": "uint256"
+          },
+          { "internalType": "string", "name": "ipfsHash", "type": "string" }
+        ],
+        "internalType": "struct iProtoKol.CampaignDetailsInput",
+        "name": "_newCampaignInput",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "isVestingInEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "NumberOfvestings",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "vestingCycleDuration",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct iProtoKol.VestingDetailsInput",
+        "name": "_vestingInfoInput",
+        "type": "tuple"
+      },
+      { "internalType": "uint16", "name": "_tgePer", "type": "uint16" }
+    ],
+    "name": "updateCampaign",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "string", "name": "_ipfsHash", "type": "string" }
+    ],
+    "name": "updateKolData",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

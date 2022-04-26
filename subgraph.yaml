@@ -1,0 +1,56 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: protoKol
+    network: rinkeby
+    source:
+      address: "0x0675d0931d1E7cb9871060d113f284A75d75E20a"
+      abi: protoKol
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CampaignCreated
+        - CampaignDetailsUpdated
+        - ClaimBackInvestment
+        - ClaimKolInvestment
+        - ClaimPreSaleTokens
+        - DepositPreSaleTokens
+        - InvestInCampaign
+        - KOLAdded
+        - SetMaxTGEAllowance
+        - SetPenalty
+        - StakingPercentageUpdated
+        - TGEDeposited
+      abis:
+        - name: protoKol
+          file: ./abis/protoKol.json
+      eventHandlers:
+        - event: CampaignCreated((uint256,(bool,bool,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,string),(bool,uint256,uint256,uint256),(bool,uint16,uint256,uint256)))
+          handler: handleCampaignCreated
+        - event: CampaignDetailsUpdated((uint256,(bool,bool,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,string),(bool,uint256,uint256,uint256),(bool,uint16,uint256,uint256)))
+          handler: handleCampaignDetailsUpdated
+        - event: ClaimBackInvestment(uint256,uint256,uint256,address)
+          handler: handleClaimBackInvestment
+        - event: ClaimKolInvestment(uint256,uint256,address)
+          handler: handleClaimKolInvestment
+        - event: ClaimPreSaleTokens(uint256,uint256,address,address)
+          handler: handleClaimPreSaleTokens
+        - event: DepositPreSaleTokens(uint256,uint256,address,address)
+          handler: handleDepositPreSaleTokens
+        - event: InvestInCampaign(uint256,uint256,uint256,address)
+          handler: handleInvestInCampaign
+        - event: KOLAdded((address,uint256,string,string))
+          handler: handleKOLAdded
+        - event: SetMaxTGEAllowance(uint256)
+          handler: handleSetMaxTGEAllowance
+        - event: SetPenalty(uint256)
+          handler: handleSetPenalty
+        - event: StakingPercentageUpdated(uint16,uint256,address)
+          handler: handleStakingPercentageUpdated
+        - event: TGEDeposited(uint256,uint256,uint256,address)
+          handler: handleTGEDeposited
+      file: ./src/mapping.ts

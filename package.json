@@ -1,0 +1,16 @@
+{
+  "name": "kolnet-allevent-rinkeby",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ syedmuqeetaqib/kolnet-allevent-rinkeby",
+    "create-local": "graph create --node http://localhost:8020/ syedmuqeetaqib/kolnet-allevent-rinkeby",
+    "remove-local": "graph remove --node http://localhost:8020/ syedmuqeetaqib/kolnet-allevent-rinkeby",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 syedmuqeetaqib/kolnet-allevent-rinkeby"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.26.0",
+    "@graphprotocol/graph-ts": "0.24.1"
+  }
+}

@@ -1,0 +1,6 @@
+type ExampleEntity @entity {
+  id: ID!
+  count: BigInt!
+  _campaign_campaignNumber: BigInt! # uint256
+  _campaign_campaignData_investmentClaimed: Boolean! # bool
+}
