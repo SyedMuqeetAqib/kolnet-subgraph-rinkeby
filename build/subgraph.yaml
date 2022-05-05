@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: protoKol
@@ -28,7 +28,7 @@ dataSources:
         - TGEDeposited
       abis:
         - name: protoKol
-          file: ./abis/protoKol.json
+          file: protoKol\abis\protoKol.json
       eventHandlers:
         - event: CampaignCreated((uint256,(bool,bool,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,string),(bool,uint256,uint256,uint256),(bool,uint16,uint256,uint256)))
           handler: handleCampaignCreated
@@ -54,4 +54,4 @@ dataSources:
           handler: handleStakingPercentageUpdated
         - event: TGEDeposited(uint256,uint256,uint256,address)
           handler: handleTGEDeposited
-      file: ./src/mapping.ts
+      file: protoKol\protoKol.wasm
