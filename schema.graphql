@@ -87,6 +87,7 @@ type User @entity {
 
   Role: String!
   
+  Name: String
 }
 
 type KolInvestmentTransaction @entity {

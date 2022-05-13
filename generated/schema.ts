@@ -519,6 +519,23 @@ export class User extends Entity {
   set Role(value: string) {
     this.set("Role", Value.fromString(value));
   }
+
+  get Name(): string | null {
+    let value = this.get("Name");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set Name(value: string | null) {
+    if (!value) {
+      this.unset("Name");
+    } else {
+      this.set("Name", Value.fromString(<string>value));
+    }
+  }
 }
 
 export class KolInvestmentTransaction extends Entity {

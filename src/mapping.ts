@@ -284,6 +284,7 @@ export function handleKOLAdded(event: KOLAdded): void {
     user = new User(event.params._kol.kolWallet.toHex());
     user.WalletAddress = event.params._kol.kolWallet;
     user.Role = "kol";
+    user.Name = event.params._kol.name;
     user.save();
   }
 }
